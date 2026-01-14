@@ -1,0 +1,87 @@
+version: 1
+# Note: This is a demo. Feel free to add or change any of these as you wish! - The Dev Team
+defaults:
+  enabled: true
+  type: rss
+  language: en
+  region: MN
+  fetch_interval_minutes: 10
+  timeout_seconds: 20
+  max_items_per_pull: 100
+  # Optional: your ingest can drop items older than this window
+  max_item_age_hours: 168   # 7 days
+  # Your fetcher should set a UA or some sites will sulk
+  user_agent_env: MN_EVENT_AI_USER_AGENT
+
+sources:
+  # -------------------------
+  # Major MN news (RSS-ready)
+  # -------------------------
+  - id: mpr_homepage
+    name: MPR News (Homepage)
+    url: https://www.mprnews.org/feed/homepage
+    tags: [news, statewide]
+
+  - id: mpr_politics
+    name: MPR News (Politics)
+    url: https://www.mprnews.org/feed/politics
+    tags: [news, politics]
+
+  - id: mpr_business
+    name: MPR News (Business)
+    url: https://www.mprnews.org/feed/business
+    tags: [news, economy]
+
+  - id: mpr_education
+    name: MPR News (Education)
+    url: https://www.mprnews.org/feed/education
+    tags: [news, education]
+
+  - id: mpr_arts
+    name: MPR News (Arts & Culture)
+    url: https://www.mprnews.org/feed/arts
+    tags: [news, culture, events]
+
+  - id: mspmag
+    name: Mpls.St.Paul Magazine
+    url: https://mspmag.com/rss-feed
+    tags: [culture, events, dining]
+
+  # -------------------------
+  # Weather / hazards (high-signal for “events in MN”)
+  # -------------------------
+  - id: nws_mpx_rss
+    name: NWS Twin Cities/Chanhassen (MPX) RSS hub
+    url: https://www.weather.gov/rss_page.php?site_name=mpx
+    tags: [weather, hazards]
+
+  # -------------------------
+  # State government press releases (structured-ish, consistent)
+  # -------------------------
+  - id: mn_dhs_news
+    name: Minnesota DHS News Releases (RSS)
+    url: https://mn.gov/dhs/rest/rss/DHS%20News?detailPage=%2Fdhs%2Fmedia%2Fnews%2Findex.jsp&id=1053
+    tags: [state, gov, health, human-services]
+
+  - id: mn_admin_news
+    name: Minnesota Dept. of Administration News Releases (RSS)
+    url: https://mn.gov/admin/rest/rss/News?detailPage=%2Fadmin%2Fmedia%2Fnews%2Findex.jsp&id=36
+    tags: [state, gov, procurement, facilities]
+
+  # -------------------------
+  # City alert systems (CivicPlus/CivicEngage). Great for closures, parking rules, snow emergencies.
+  # -------------------------
+  - id: west_st_paul_newsflash
+    name: West St. Paul (News Flash)
+    url: https://wspmn.gov/RSSFeed.aspx?CID=All-newsflash.xml&ModID=1
+    tags: [city, alerts, suburbs]
+
+  - id: south_st_paul_newsflash_all
+    name: South St. Paul (News Flash - All)
+    url: https://www.southstpaul.org/RSSFeed.aspx?CID=All-newsflash.xml&ModID=1
+    tags: [city, alerts, suburbs]
+
+  - id: south_st_paul_news_announcements
+    name: South St. Paul (News & Announcements)
+    url: https://www.southstpaul.org/RSSFeed.aspx?CID=News-and-Announcements-5&ModID=1
+    tags: [city, alerts, suburbs]

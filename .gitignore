@@ -1,0 +1,8 @@
+models/
+data/raw/
+data/processed/
+data/labels/
+.env
+.venv/
+__pycache__/
+*.pyc
