@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: mn-event-ai
+Version: 0.1.0
+Summary: RSS → classify → cluster incidents → forecast → retrieval API (region-agnostic core)
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx>=0.27.0
+Requires-Dist: feedparser>=6.0.11
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: python-dateutil>=2.9.0.post0
+Requires-Dist: tqdm>=4.66.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: torch>=2.1.0
+Requires-Dist: fastapi>=0.110.0
+Requires-Dist: uvicorn>=0.27.0
+Requires-Dist: scikit-learn>=1.4.0
+Dynamic: license-file
+
+# PatternDock
