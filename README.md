@@ -20,4 +20,11 @@ python -m mn_event_ai.jobs.run_pipeline
 python -m mn_event_ai.nlp.infer_textcnn
 python -m mn_event_ai.graph.cluster_incidents
 ```
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .   # if you want editable install as primary
+python -m mn_event_ai.jobs.run_all
+```
 
