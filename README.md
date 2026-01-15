@@ -21,3 +21,7 @@ python -m mn_event_ai.predict.forecaster
 export PYTHONPATH="$(pwd)/src"
 uvicorn mn_event_ai.api.app:app --reload --host 0.0.0.0 --port 8000
 ```
+```bash
+pip install -e .
+```
+
